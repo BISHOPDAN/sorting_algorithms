@@ -1,7 +1,23 @@
-#ifndef _SORT_H
-#define _SORT_H
+#ifndef SORT_H
+#define SORT_H
+
 #include <stdio.h>
 #include <stdlib.h>
+
+/* Comparison direction macros for bitonic sort */
+#define UP 0
+#define DOWN 1
+
+/**
+ * enum bool - Enumeration of Boolean values.
+ * @false: Equals 0.
+ * @true: Equals 1.
+ */
+typedef enum bool
+{
+	false = 0,
+	true
+} bool;
 
 /**
  * struct listint_s - Doubly linked list node
@@ -12,40 +28,18 @@
  */
 typedef struct listint_s
 {
-     const int n;
-     struct listint_s *prev;
-     struct listint_s *next;
- } listint_t;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
+} listint_t;
 
-
-/**
- * print_list - prints a list of integer
- * @list: The list to be printed
- * Return - void
- */
+/* Printing helper functions */
+void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
-/**
- * print_array - prints an array of integers
- * @array: The array to be printed
- * @size: Number of elements in @array
- * Return - void
- */
-void print_array(const int *array, size_t size);
-
-/**
- * bubble_sort - sort an array using bubble sort
- * @array: array to be sort
- * @size: size of the array
- * Return - void
- */
+/* Sorting algoritms */
 void bubble_sort(int *array, size_t size);
 
-/**
- * insertion_sort_list - sort an array using insertion sort
- * @list - doubly linked list to be sort
- * Return - void
- */
 void insertion_sort_list(listint_t **list);
 
 void selection_sort(int *array, size_t size);
@@ -65,4 +59,7 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 
 void bitonic_sort(int *array, size_t size);
-#endif
+
+void quick_sort_hoare(int *array, size_t size);
+
+#endif /* SORT_H */
