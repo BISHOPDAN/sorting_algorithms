@@ -1,7 +1,7 @@
 #ifndef _DECK_H
 #define _DECK_H
 #include <stdio.h>
-#include <stdlib.>
+#include <stdlib.h>
 
 typedef enum kind_e
 {
